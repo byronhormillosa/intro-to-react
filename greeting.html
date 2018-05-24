@@ -13,12 +13,23 @@
     <script type="text/babel">
       
     class MyComponentClass extends React.Component {
+        constructor(props){
+           super(props);
+           this.state = {
+             name: 'Byron Hormillosa'
+           };
+         }
+        
       render() {
-        return (
+        setTimeout(() => {
+            this.setState({name:'Piggy'});
+        }, 1000)
+          return (
         
         <div>
-        <h1>Rendering Multiple Components</h1>
-        <h2>Learning at Bloc!</h2>
+          <h2>{this.props.title}</h2>
+          <h3>{this.props.idea}</h3>
+          <p>{this.state.name}</p>        
         </div>
       
       
@@ -28,10 +39,9 @@
     }
     
     ReactDOM.render(<div>
-      <MyComponentClass />
-      <MyComponentClass />
-      <MyComponentClass />
-      <MyComponentClass />
+      <MyComponentClass title ='Intro to JSX' idea='JSX represents objects' />
+      <MyComponentClass title = 'Components and Props' idea = 'Props are read-only' />
+      <MyComponentClass title = 'States and Life cycle' idea = 'States are mutable' />
     </div>, document.getElementById('app'));
 
 
